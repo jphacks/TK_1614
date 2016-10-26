@@ -5,6 +5,7 @@ import RealmSwift
 class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var fthRefrigeratorModel = FTHRefrigeratorModel()
+    var myImageView:UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         let takePicButton =  UIButton(frame: CGRect(x: 50, y: 200, width: self.view.bounds.size.width / 3, height: self.view.bounds.size.width / 3))
         takePicButton.backgroundColor = UIColor.red
         takePicButton.setTitle("写真を撮る", for: UIControlState())
+        takePicButton.addTarget(self, action: #selector(pickImageFromCamera), for:.touchUpInside)
         self.view.addSubview(takePicButton)
         
         //init a button for adding food by directly typing
@@ -28,7 +30,6 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         typingButton.setTitle("入力する", for: UIControlState())
         typingButton.addTarget(self, action: #selector(didTapAddbyTypingButton), for:.touchUpInside)
         self.view.addSubview(typingButton)
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,28 +37,34 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
+    func setupImageView()
+    {
+        myImageView = UIImageView()
+        
+        let xPostion:CGFloat = 50
+        let yPostion:CGFloat = 200
+        let buttonWidth:CGFloat = 200
+        let buttonHeight:CGFloat = 200
+        
+        myImageView.frame = CGRect(x: xPostion, y: yPostion, width: buttonWidth, height: buttonHeight)
+        
+        self.view.addSubview(myImageView)
+    }
     
     // 写真を撮ってそれを選択
     func pickImageFromCamera() {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            let controller = UIImagePickerController()
-            controller.delegate = self
-            controller.sourceType = UIImagePickerControllerSourceType.camera
-            self.present(controller, animated: true, completion: nil)
-        }
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self;
+        myPickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        self.present(myPickerController, animated: true, completion: nil)
     }
     
-    // ライブラリから写真を選択する
-    func pickImageFromLibrary() {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
-            let controller = UIImagePickerController()
-            controller.delegate = self
-            controller.sourceType = UIImagePickerControllerSourceType.photoLibrary
-            self.present(controller, animated: true, completion: nil)
-        }
-    }
-    
-    @IBAction func didTapBackButton(_ sender: UIButton) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        myImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        myImageView.backgroundColor = UIColor.clear
+        myImageView.contentMode = UIViewContentMode.scaleAspectFit
         self.dismiss(animated: true, completion: nil)
     }
     
