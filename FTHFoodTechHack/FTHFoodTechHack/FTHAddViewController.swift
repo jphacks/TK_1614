@@ -10,6 +10,7 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.view.backgroundColor = UIColor.white
         let addLabel = UILabel(frame: CGRect(x: 10, y: 100, width: self.view.bounds.size.width , height: 50))
         addLabel.textAlignment = NSTextAlignment.center
         addLabel.text = "食材を追加する方法を選んでください。"
@@ -60,14 +61,9 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.dismiss(animated: true, completion: nil)
     }
     
-//    func didTapAddbyTypingButton (_ sender:UIButton){
-//        self.fthRefrigeratorModel.addFoodByTyping(name: "あああああああ", exdate: 0, num: 100)
-//        
-//    }
-    
     func didTapAddbyTypingButton(_ sender: UIButton){
-        let recView = self.storyboard!.instantiateViewController(withIdentifier: "addchild")
-        self.present(recView, animated: true, completion: nil)
+        let addChildViewController = FTHAddChildViewController()
+        self.navigationController?.pushViewController(addChildViewController, animated: true)
         
     }
     

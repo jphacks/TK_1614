@@ -9,6 +9,7 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate {
     let dateTextField = UITextField()
     
     override func viewDidLoad() {
+        self.view.backgroundColor = UIColor.white
         let foodLabel = UILabel(frame:CGRect(x: 30, y: 100, width: 80 , height: 50))
          foodLabel.textAlignment = NSTextAlignment.center
          foodLabel.text = "食材名"

@@ -5,11 +5,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        
-//        self.navigationController?.navigationBar
-//        self.navigationController?.setNavigationBarHidden(false, animated: false)
-//        self.navigationItem
-//        self.navigationItem.title = "Fresh Fridge"
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.title = "Fresh Fridge"
         
         let seeButton = UIButton(frame: CGRect(x: 50, y: 100, width: self.view.bounds.size.width - 100, height: self.view.bounds.size.height/5))
         seeButton.backgroundColor = UIColor.red
@@ -31,18 +28,18 @@ class ViewController: UIViewController {
     }
     
     func didTapSeeButton(_ sender:UIButton!){
-        let seeView = self.storyboard!.instantiateViewController(withIdentifier: "see")
-        self.present(seeView, animated:true, completion:nil)
+        let seeViewController = FTHSeeUIViewController()
+        self.navigationController?.pushViewController(seeViewController, animated: true)
     }
     
     func didTapAddButton(_ sender: UIButton) {
-        let addView = self.storyboard!.instantiateViewController(withIdentifier: "add")
-        self.present(addView, animated: true, completion: nil)
+        let addViewController = FTHAddViewController()
+        self.navigationController?.pushViewController(addViewController, animated: true)
     }
     
     func didTapRecommendButton(_ sender: UIButton) {
-        let recView = self.storyboard!.instantiateViewController(withIdentifier: "rec")
-        self.present(recView, animated: true, completion: nil)
+        let recViewController = FTHRecommendViewController()
+        self.navigationController?.pushViewController(recViewController, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

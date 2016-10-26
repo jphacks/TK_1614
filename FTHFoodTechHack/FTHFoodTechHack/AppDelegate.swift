@@ -4,22 +4,18 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
+    var navigationController: UINavigationController?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-//        let myFirstViewController: ViewController = ViewController()
-//
-//        let myNavigationController: UINavigationController = UINavigationController(rootViewController: myFirstViewController)
-//        
-//        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-//        
-//        UINavigationBar.appearance().barTintColor = UIColor.redColor()
-//        UINavigationBar.appearance().titleTextAttributes = titleDict as! [String : AnyObject]
-//
-//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        self.window?.rootViewController = myNavigationController
-//        self.window?.makeKeyAndVisible()
-//        
+        let viewController: ViewController = ViewController()
+        navigationController = UINavigationController(rootViewController: viewController)
+        self.window = UIWindow(frame:UIScreen.main.bounds)
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
+        
         return true
     }
     
