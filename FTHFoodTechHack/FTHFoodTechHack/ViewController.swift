@@ -3,6 +3,12 @@ import UIKit
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
+		let bestBeforeDate = BestBeforeDate(callback: { (table : [ String : (NSDate, Int) ]) in
+			print(table)
+		})
+		
+		bestBeforeDate.fetch(UIImage(named: "receipt-example.JPG")!)
+		
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         self.navigationItem.hidesBackButton = true
