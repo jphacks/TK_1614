@@ -1,7 +1,5 @@
 import UIKit
 
-import RealmSwift
-
 class FTHSeeUIViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var fthRefrigeratorModel = FTHRefrigeratorModel()

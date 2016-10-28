@@ -19,14 +19,14 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         //init a button for taing pics
         let takePicButton =  UIButton(frame: CGRect(x: 50, y: 200, width: self.view.bounds.size.width / 3, height: self.view.bounds.size.width / 3))
-        takePicButton.backgroundColor = UIColor.red
+        takePicButton.backgroundColor = UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
         takePicButton.setTitle("写真を撮る", for: UIControlState())
         takePicButton.addTarget(self, action: #selector(pickImageFromCamera), for:.touchUpInside)
         self.view.addSubview(takePicButton)
         
         //init a button for adding food by directly typing
         let typingButton =  UIButton(frame: CGRect(x: 30 + takePicButton.frame.maxX, y: 200, width: self.view.bounds.size.width / 3, height: self.view.bounds.size.width / 3))
-        typingButton.backgroundColor = UIColor.red
+        typingButton.backgroundColor = UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
         typingButton.setTitle("入力する", for: UIControlState())
         typingButton.addTarget(self, action: #selector(didTapAddbyTypingButton), for:.touchUpInside)
         self.view.addSubview(typingButton)

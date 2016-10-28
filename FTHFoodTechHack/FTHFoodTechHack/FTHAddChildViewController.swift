@@ -57,13 +57,14 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {}
     
     func didTapAddButton(sender: UIButton){
-        let realm = try! Realm()
         
+        let realm = try! Realm()
         let realmFoodStock = RealmFoodStock()
         realmFoodStock.name = foodTextField.text!
         realmFoodStock.exdate = Int(dateTextField.text!)!
         realmFoodStock.num = Int(numTextField.text!)!
         
+
         try! realm.write{
             realm.add(realmFoodStock)
         }
