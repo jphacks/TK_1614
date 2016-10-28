@@ -14,7 +14,7 @@ class BestBeforeDate {
 	let OCR_API_KEY = "AIzaSyAlELP4Ai9mzXNTPTuAXOIePoS09gxft-Y"
 	let MA_API_KEY = "a1493145bf328317de821d99f613bd60e076d72f91cd3750551fe4a61c7993a1"
 
-	var callback : ([ String : (NSDate, Int) ]) -> Void // [ name : (best before data, price) ] -> Void
+	var callback : ([ String : (NSDate, Int) ]) -> Void // [ name : (best_before_data, price) ] -> Void
 	
 	init(callback : @escaping ([ String : (NSDate, Int) ]) -> Void) {
 		self.callback = callback
@@ -35,7 +35,6 @@ class BestBeforeDate {
 	func base64EncodeImage(_ image: UIImage) -> String {
 		var imagedata = UIImagePNGRepresentation(image)!
 		
-		// Resize the image if it exceeds the 2MB API limit
 		if (imagedata.count > 2097152) {
 			let oldSize: CGSize = image.size
 			let newSize: CGSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
