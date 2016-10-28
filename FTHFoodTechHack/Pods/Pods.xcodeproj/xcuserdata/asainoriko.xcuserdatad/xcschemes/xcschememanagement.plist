@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FTHFoodTechHack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,25 +34,40 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0406EBB8EEC929D274393BC7104C9C81</key>
+		<key>0E2DD9FE65594361F652043B4C8BBFEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>753C4D3AF48406DB3D0888E4DC8378DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9AEB3D619117C48FCBE77017775EBD8B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A52340DA4CAFBB0C73E513D7A7DD7A6E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>AC8E60B42E4F4F6620650221411E1FB0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B585E3C21476013B2791008B45306C46</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B5BA7C87B978A8666C815C4C704933A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
