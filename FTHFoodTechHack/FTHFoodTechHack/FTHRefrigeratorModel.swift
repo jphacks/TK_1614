@@ -38,4 +38,5 @@ open class FTHRefrigeratorModel :NSObject {
             realm.add(realmFoodStock)
         }
     }
+    
 }

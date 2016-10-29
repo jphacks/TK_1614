@@ -1,6 +1,0 @@
-framework module Pods_FTHFoodTechHackUITests {
-  umbrella header "Pods-FTHFoodTechHackUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

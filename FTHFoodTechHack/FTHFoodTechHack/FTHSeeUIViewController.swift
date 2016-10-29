@@ -1,6 +1,5 @@
 import UIKit
-
-import RealmSwift
+import MGSwipeTableCell
 
 class FTHSeeUIViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -17,7 +16,7 @@ class FTHSeeUIViewController: UIViewController, UITableViewDataSource, UITableVi
         backBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(FTHSeeUIViewController.onClick))
         self.navigationItem.leftBarButtonItem = backBtn
         
-        myTableView = UITableView(frame:CGRect(x:30, y: 100, width:self.view.bounds.width - 60, height:self.view.bounds.height - 100))
+        myTableView = UITableView(frame:CGRect(x:10, y: 50, width:self.view.bounds.width - 20, height:self.view.bounds.height - 100))
         
         myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "FoodCell")
         myTableView.dataSource = self
@@ -50,12 +49,39 @@ class FTHSeeUIViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
+        let cell =  MGSwipeTableCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "FoodCell")
+
         if (indexPath as NSIndexPath).section == 0 {
             cell.textLabel?.text = fthRefrigeratorModel.expiringFoodStocks[(indexPath as NSIndexPath).row].name + " Expiration date : "+String(fthRefrigeratorModel.expiringFoodStocks[(indexPath as NSIndexPath).row].exdate)
         } else if (indexPath as NSIndexPath).section == 1 {
             cell.textLabel?.text = fthRefrigeratorModel.normalFoodStocks[(indexPath as NSIndexPath).row].name + " Expiration date : "+String(fthRefrigeratorModel.normalFoodStocks[(indexPath as NSIndexPath).row].exdate)
         }
+        
+        //implemented left and right buttons to enable users to remove/send line to fams.
+        cell.rightButtons = [MGSwipeButton(title: "削除する", icon: UIImage(named:"check.png"), backgroundColor: UIColor.red, callback: {
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            //crashes when multiple objects are deleted at the same time. need to be fized before demo. 
+            if (indexPath as NSIndexPath).section == 0 {
+                self.fthRefrigeratorModel.expiringFoodStocks.remove(at:indexPath.row)
+            } else {
+                self.fthRefrigeratorModel.normalFoodStocks.remove(at: indexPath.row)
+                
+            }
+            self.myTableView.deleteRows(at:[indexPath], with: .automatic)
+            return true
+        })]
+        
+        cell.leftButtons = [MGSwipeButton(title: "LINEに送る", icon: UIImage(named:"fav.png"), backgroundColor: UIColor.green, callback: {
+            (sender: MGSwipeTableCell!) -> Bool in
+            /*TODO(totem):lineに伝送するやつお願いします。商品名はcell.textLabel?.textで情報が取れます。
+             i.e.             
+             print("%s", cell.textLabel?.text) ->"ほうれん草"
+             */
+            return true
+            })]
+        cell.leftSwipeSettings.transition = MGSwipeTransition.rotate3D
+
         return cell
     }
     
@@ -63,6 +89,7 @@ class FTHSeeUIViewController: UIViewController, UITableViewDataSource, UITableVi
         let home = ViewController()
         self.navigationController?.pushViewController(home, animated: true)
     }
+    
     
     @IBAction func didTapBackButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)

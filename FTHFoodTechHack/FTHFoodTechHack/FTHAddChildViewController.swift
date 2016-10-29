@@ -1,8 +1,9 @@
 import UIKit
 import RealmSwift
+import FlatUIKit
+import SSBouncyButton
 
-
-class FTHAddChildViewController: UIViewController, UITextFieldDelegate {
+class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlertViewDelegate{
 
     let foodTextField = UITextField()
     let numTextField = UITextField()
@@ -12,6 +13,7 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate {
         self.view.backgroundColor = UIColor.white
         let foodLabel = UILabel(frame:CGRect(x: 30, y: 100, width: 80 , height: 50))
          foodLabel.textAlignment = NSTextAlignment.center
+
          foodLabel.text = "食材名"
         self.view.addSubview(foodLabel)
         
@@ -46,19 +48,20 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate {
         dateTextField.layer.borderWidth = 1.0
         self.view.addSubview(dateTextField)
         
-        let addButton =  UIButton(frame: CGRect(x: foodLabel.frame.maxX, y: dateTextField.frame.maxY + 10, width: 100, height: 50))
-        addButton.backgroundColor = UIColor.red
-        addButton.setTitle("追加する", for: UIControlState())
-        addButton.addTarget(self, action: #selector(didTapAddButton), for:.touchUpInside)
-        self.view.addSubview(addButton)
+        let trybutton = SSBouncyButton()
+        trybutton.frame = CGRectMake(foodLabel.frame.maxX, dateTextField.frame.maxY + 10, 100, 50)
+        trybutton.backgroundColor =  UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
+        trybutton.titleLabel?.textColor = UIColor.black
         
+        trybutton.setTitle("追加する", for: UIControlState())
+        trybutton.addTarget(self, action: #selector(didTapAddButton), for:.touchUpInside)
+        self.view.addSubview(trybutton)       
     }
 
     override func didReceiveMemoryWarning() {}
     
     func didTapAddButton(sender: UIButton){
         let realm = try! Realm()
-        
         let realmFoodStock = RealmFoodStock()
         realmFoodStock.name = foodTextField.text!
         realmFoodStock.exdate = Int(dateTextField.text!)!

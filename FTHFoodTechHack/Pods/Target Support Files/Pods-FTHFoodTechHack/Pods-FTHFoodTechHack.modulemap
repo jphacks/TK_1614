@@ -1,6 +1,0 @@
-framework module Pods_FTHFoodTechHack {
-  umbrella header "Pods-FTHFoodTechHack-umbrella.h"
-
-  export *
-  module * { export * }
-}
