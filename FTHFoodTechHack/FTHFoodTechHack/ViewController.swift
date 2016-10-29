@@ -53,6 +53,8 @@ class ViewController: UIViewController {
     }
 	
 	func createUserAccountIfNeeded() {
+		return // user/addが機能してないので
+		
 		let ud = UserDefaults.standard
 
 		if (ud.object(forKey: "x-access-token") != nil) { return }
