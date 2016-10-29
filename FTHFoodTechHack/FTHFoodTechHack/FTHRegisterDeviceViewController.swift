@@ -6,44 +6,19 @@ import AVFoundation
 
 class FTHRegisterDeviceViewController : ViewController, AVCaptureMetadataOutputObjectsDelegate {
 	override func viewDidLoad() {
-		let mySession: AVCaptureSession! = AVCaptureSession()
-		let devices = AVCaptureDevice.devices()
-		var myDevice: AVCaptureDevice!
 
-		for device in devices! {
-			if((device as AnyObject).position == AVCaptureDevicePosition.back){
-				myDevice = device as! AVCaptureDevice
-			}
-		}
-		
-		let myVideoInput = try! AVCaptureDeviceInput.init(device: myDevice)
-
-		if mySession.canAddInput(myVideoInput) {
-			mySession.addInput(myVideoInput)
-		}
-		
-		let myMetadataOutput: AVCaptureMetadataOutput! = AVCaptureMetadataOutput()
-		
-		if mySession.canAddOutput(myMetadataOutput) {
-			mySession.addOutput(myMetadataOutput)
-			myMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-			myMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
-		}
-		
-		let myVideoLayer = AVCaptureVideoPreviewLayer.init(session: mySession)
-		myVideoLayer?.frame = self.view.bounds
-		myVideoLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-
-		self.view.layer.addSublayer(myVideoLayer!)
-		
-		mySession.startRunning()
 	}
 	
-	private func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, from connection: AVCaptureConnection!) {
-		if metadataObjects.count > 0 {
-			let qrData: AVMetadataMachineReadableCodeObject  = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-			print("\(qrData.type)")
-			print("\(qrData.stringValue)")
+	func readQR(_ image : UIImage) {
+		let ciimg = CIImage(image: image)!
+		let detector = CIDetector(ofType: CIDetectorTypeQRCode,  context: nil, options: nil)
+		let results = detector?.features(in: ciimg) as! [CIQRCodeFeature]
+
+		if results.isEmpty {
+			// Failed to detect
+		} else {
+			print(results[0].messageString)
+			registerDevice(results[0].messageString!)
 		}
 	}
 	

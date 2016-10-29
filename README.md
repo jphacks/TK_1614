@@ -27,8 +27,8 @@
 *Google Could Vision API(画像解析)<https://cloud.google.com/vision/>
 
 #### API・データ
-*Google Could Vision API
-*StillTasty 
+*Google Could Vision API  
+*StillTasty  
 *
 
 #### フレームワーク・ライブラリ・モジュール
@@ -36,10 +36,10 @@
 * 
 
 #### デバイス
-*iPhone
-*Androidタブレット
-*RasberryPi
-*人感センサー、モーションセンサー
+*iPhone  
+*Androidタブレット  
+*RasberryPi  
+*人感センサー、モーションセンサー  
 
 
 ### 独自技術

@@ -6,7 +6,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {		
         super.viewDidLoad()
         
-        
         self.view.backgroundColor = UIColor.white
         self.navigationItem.hidesBackButton = true
         self.navigationItem.title = "Fresh Fridge"
