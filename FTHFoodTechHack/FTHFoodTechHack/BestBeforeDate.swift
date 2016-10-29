@@ -6,9 +6,11 @@ class BestBeforeDate {
 	let OCR_API_KEY = "AIzaSyAlELP4Ai9mzXNTPTuAXOIePoS09gxft-Y"
 	let MA_API_KEY = "a1493145bf328317de821d99f613bd60e076d72f91cd3750551fe4a61c7993a1"
 
+	var accessToken : Int
 	var callback : ([ String : (NSDate, Int) ]) -> Void // [ name : (best_before_data, price) ] -> Void
 	
-	init(callback : @escaping ([ String : (NSDate, Int) ]) -> Void) {
+	init(accessToken : Int, callback : @escaping ([ String : (NSDate, Int) ]) -> Void) {
+		self.accessToken = accessToken
 		self.callback = callback
 	}
 	
@@ -22,38 +24,91 @@ class BestBeforeDate {
 				"image": [ "content": imageData	],
 				"features": [ [	"type": "TEXT_DETECTION", "maxResults": 10] ]
 			]
-			], encoding: JSONEncoding.default).responseJSON { response in
-				guard let object = response.result.value else {	return }
-				let json = JSON(object)
-				guard let full_text = json["responses"][0]["textAnnotations"][0]["description"].string else { return }
-				
-				self.MARequest(full_text)
+		], encoding: JSONEncoding.default).responseJSON { response in
+			guard let object = response.result.value else {	return }
+			let json = JSON(object)
+			guard let full_text = json["responses"][0]["textAnnotations"][0]["description"].string else { return }
+			
+			self.MARequest(full_text)
 		}
 	}
 	
-	func MARequest(_ text: String) {
+	func MARequest(_ original_text: String) {
 		Alamofire.request("https://labs.goo.ne.jp/api/morph", method: .post, parameters: [
 			"app_id": MA_API_KEY,
-			"sentence": text,
+			"sentence": original_text,
 			"pos_filter": "名詞"
 		], encoding: JSONEncoding.default).responseJSON { response in
 			guard let object = response.result.value else { return }
 			let json = JSON(object)
 			let nouns = json["word_list"].arrayValue.map { $0.arrayValue.map { $0[0].string } }.flatMap { $0 }
 				
-			self.ServerSideRequest(nouns as! [String])
+			self.ServerSideRequest(nouns as! [String], original_text: original_text)
 		}
 	}
 	
-	func ServerSideRequest(_ nouns: [ String ]) {
-		var table : [ String : (NSDate, Int)] = [:] // [ name : best before date ]
-		
-		nouns.forEach {
-			let sinceNow = (Int(arc4random_uniform(11)) + 3) * 24 * 60 * 60
-			table[$0] = (NSDate(timeIntervalSinceNow: Double(sinceNow)), Int(arc4random_uniform(600)) + 100)
+	func ServerSideRequest(_ nouns: [ String ], original_text : String) {
+		Alamofire.request("https://hoge/piyo/", method: .post, parameters: [
+			"token": self.accessToken,
+			"nouns": nouns
+		], encoding: JSONEncoding.default).responseJSON { response in
+			guard let object = response.result.value else { return }
+			let json = JSON(object)
+			var table : [ String : (NSDate, Int) ] = [ : ]
+			
+			json.arrayValue.forEach {
+				let date = calcDeadlineFromRangeString($0["date"])
+				let price = extractPriceFromFullText(original_text, word: $0["name"])
+				
+				table[name] = (date, price)
+			}
+			
+			self.callback(table)
+		}
+	}
+	
+	func extractPriceFromFullText(_ text: String, word: String) -> Int {
+		text.components(separatedBy: "\n").forEach {
+			if text.rangeOfString(word) != nil {
+				return extractPriceFrom(text, word: word)
+			}
 		}
 		
-		callback(table)
+		return 0
+	}
+	
+	func extractPriceFromLine(_ text: String, word: String) -> Int {
+		text = text.replacingOccurrences(of: ",", with: "")
+		
+		do {
+			let pattern = "([0-9]+)$"
+			let regex = try NSRegularExpression(pattern: pattern, options: [])
+			let results = regex.matches(in: text, options: [], range: NSMakeRange(0, text.characters.count))
+			
+			return Int((text as NSString).substring(with: results[0].range))
+		} catch let error as NSError {
+			return 0
+		}
+		
+		return 0
+	}
+	
+	func extractHeadNumber(_ d : String) {
+		let pattern = "^([0-9]+)"
+		let regex = try NSRegularExpression(pattern: pattern, options: [])
+		let results = regex.matches(in: d, options: [], range: NSMakeRange(0, d.characters.count))
+		return Int((text as NSString).substring(with: results[0].range))
+	}
+	
+	func removeSuffixOnceRipe(_ d : String) {
+		let pattern = "once ripe"
+		let regex = try NSRegularExpression(pattern: pattern, options: [])
+		let results = regex.matches(in: d, options: [], range: NSMakeRange(0, d.characters.count))
+		return Int((text as NSString).substring(with: results[0].range))
+	}
+	
+	func calcDeadlineFromRangeString(_ date: String) -> NSDate {
+		return NSDate(timeInterval: Int(date) * 60 * 60 * 24, sinceDate: NSDate())
 	}
 	
 	func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {
