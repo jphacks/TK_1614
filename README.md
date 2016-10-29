@@ -12,24 +12,35 @@
 
 
 ### 解決出来ること
+
 ### 今後の展望
+
 ### 注力したこと（こだわり等）
 * 
 * 
 
 ## 開発技術
+
+
 ### 活用した外部技術
+*Rakuten MA(形態素解析)<https://github.com/rakuten-nlp/rakutenma/blob/master/README-ja.md>
+*Google Could Vision API(画像解析)<https://cloud.google.com/vision/>
+
 #### API・データ
-* 
-* 
+*Google Could Vision API
+*StillTasty 
+*
 
 #### フレームワーク・ライブラリ・モジュール
 * 
 * 
 
 #### デバイス
-* 
-* 
+*iPhone
+*Androidタブレット
+*RasberryPi
+*人感センサー、モーションセンサー
+
 
 ### 独自技術
 #### 期間中に開発した独自機能・技術
