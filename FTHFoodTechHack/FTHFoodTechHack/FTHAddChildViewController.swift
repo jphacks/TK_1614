@@ -80,7 +80,7 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         let realmFoodStock = RealmFoodStock()
         realmFoodStock.name = foodTextField.text!
         realmFoodStock.exdate = Int(dateTextField.text!)!
-        realmFoodStock.num = Int(numTextField.text!)!
+        realmFoodStock.price = Int(numTextField.text!)!
         
         try! realm.write{
             realm.add(realmFoodStock)

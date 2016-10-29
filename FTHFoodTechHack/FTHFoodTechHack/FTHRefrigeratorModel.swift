@@ -15,23 +15,23 @@ open class FTHRefrigeratorModel :NSObject {
         count = 0
         for food in realm.objects(RealmFoodStock.self) {
             if count < 15{
-                let newFood = FTHFoodModel(name:food.name, exdate: 0, num: 1)
+                let newFood = FTHFoodModel(name:food.name, exdate: 0, price: 1)
                 self.expiringFoodStocks.append(newFood)
             } else {
-                let newFood = FTHFoodModel(name:food.name, exdate: 10, num: 1)
+                let newFood = FTHFoodModel(name:food.name, exdate: 10, price: 1)
                 self.normalFoodStocks.append(newFood)
             }
             count += 1
         }
     }
     
-    open func addFoodByTyping(name:String, exdate:Int, num:Int){
+    open func addFoodByTyping(name:String, exdate:Int, price:Int){
         let realm = try! Realm()
         
         let realmFoodStock = RealmFoodStock()
         realmFoodStock.name = name
         realmFoodStock.exdate = exdate
-        realmFoodStock.num = num
+        realmFoodStock.price = price
         
         
         try! realm.write{

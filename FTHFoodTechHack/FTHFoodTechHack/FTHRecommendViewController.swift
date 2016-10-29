@@ -1,5 +1,4 @@
 import UIKit
-
 import WebKit
 
 class FTHRecommendViewController: UIViewController, WKNavigationDelegate {

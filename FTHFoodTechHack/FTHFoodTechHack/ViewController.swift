@@ -1,5 +1,6 @@
 import UIKit
 import SwiftyJSON
+import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -8,7 +9,6 @@ class ViewController: UIViewController {
 			print(table)
 		})
 		bestBeforeDate.fetch(UIImage(named: "receipt-example.JPG")!)
-		
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         self.navigationItem.hidesBackButton = true

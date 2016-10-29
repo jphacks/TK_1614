@@ -4,15 +4,15 @@ import Foundation
 open class FTHFoodModel {
     var name:String = ""
     var exdate:Int = 0
-    var num :Int = 0
+    var price :Int = 0
     
     init(){}
     
     //exdate shoudn't be int.
-    init(name:String, exdate:Int, num:Int){
+    init(name:String, exdate:Int, price:Int){
         self.name = name
         self.exdate = exdate
-        self.num = num
+        self.price = price
     }
     
     func decrementExData() {
