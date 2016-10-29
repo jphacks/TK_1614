@@ -64,6 +64,7 @@ class ViewController: UIViewController {
 			let json = JSON(object)
 			
 			ud.set("x-access-token", forKey: json["user"]["access_token"].string!)
+			ud.set("user-id", forKey: json["user"]["user_id"].string!)
 		}
 	}
 }
