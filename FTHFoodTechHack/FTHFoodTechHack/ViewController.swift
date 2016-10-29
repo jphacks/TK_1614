@@ -7,7 +7,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
 		super.viewDidLoad()
 
-		self.createUserAccountIfNeeded()		
+		self.createUserAccountIfNeeded()
         
         self.view.backgroundColor = UIColor.white
         self.navigationItem.hidesBackButton = true

@@ -11,7 +11,6 @@
 		45366A031DBEEFFA00E1974B /* FTHAddChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45366A021DBEEFFA00E1974B /* FTHAddChildViewController.swift */; };
 		453D5C121DC4ABF30077F26F /* FTHConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453D5C111DC4ABF30077F26F /* FTHConfirmationViewController.swift */; };
 		45731A7B1DC38462004442F3 /* BestBeforeDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45731A7A1DC38462004442F3 /* BestBeforeDate.swift */; };
-		45ED30FD1DBCF0420013089D /* RealmFoodStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ED30FC1DBCF0420013089D /* RealmFoodStock.swift */; };
 		45FC27021DBB569500E4C333 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC27011DBB569500E4C333 /* AppDelegate.swift */; };
 		45FC27041DBB569500E4C333 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC27031DBB569500E4C333 /* ViewController.swift */; };
 		45FC27071DBB569500E4C333 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45FC27051DBB569500E4C333 /* Main.storyboard */; };
@@ -72,13 +71,8 @@
 		1EC088FD278CFDBDA171FCB0 /* Pods-FTHFoodTechHack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FTHFoodTechHack.release.xcconfig"; path = "Pods/Target Support Files/Pods-FTHFoodTechHack/Pods-FTHFoodTechHack.release.xcconfig"; sourceTree = "<group>"; };
 		45124DF91DC510A7005854B1 /* RealmFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmFood.swift; sourceTree = "<group>"; };
 		45366A021DBEEFFA00E1974B /* FTHAddChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHAddChildViewController.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		453D5C111DC4ABF30077F26F /* FTHConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHConfirmationViewController.swift; sourceTree = "<group>"; };
 		45731A7A1DC38462004442F3 /* BestBeforeDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestBeforeDate.swift; sourceTree = "<group>"; };
-		45731A7C1DC3847B004442F3 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		45ED30FC1DBCF0420013089D /* RealmFoodStock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmFoodStock.swift; sourceTree = "<group>"; };
-=======
->>>>>>> master
 		45FC26FE1DBB569500E4C333 /* FTHFoodTechHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTHFoodTechHack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FC27011DBB569500E4C333 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45FC27031DBB569500E4C333 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -520,12 +514,8 @@
 				45FC27041DBB569500E4C333 /* ViewController.swift in Sources */,
 				45FC27391DBC472600E4C333 /* FTHRefrigeratorModel.swift in Sources */,
 				45FC27021DBB569500E4C333 /* AppDelegate.swift in Sources */,
-<<<<<<< HEAD
-				45ED30FD1DBCF0420013089D /* RealmFoodStock.swift in Sources */,
 				453D5C121DC4ABF30077F26F /* FTHConfirmationViewController.swift in Sources */,
-=======
 				45124DFA1DC510A7005854B1 /* RealmFood.swift in Sources */,
->>>>>>> master
 				45FC27371DBB7B6A00E4C333 /* FTHSeeUIViewController.swift in Sources */,
 				45FC273B1DBC4F2F00E4C333 /* FTHAddViewController.swift in Sources */,
 				45FC273D1DBC51D400E4C333 /* FTHRecommendViewController.swift in Sources */,
