@@ -75,13 +75,11 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
             print(table)
         })
         bestBeforeDate.fetch(myImageView.image!)
-    }
-    
-    func image(image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
-        if error != nil {
-            //プライバシー設定不許可など書き込み失敗時は -3310 (ALAssetsLibraryDataUnavailableError)
-            print(error.code)
-        }
+        //TODO(hkarasawa):これが確認viewです。
+        var finishSavingView = UITextView(frame:CGRect(x: 30, y: 200, width: self.view.bounds.size.width - 60 , height: 100))
+        finishSavingView.backgroundColor = UIColor.red
+        finishSavingView.text = "保存したよ！！！！！！！！"
+        self.view.addSubview(finishSavingView)
     }
     
         
