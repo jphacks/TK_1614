@@ -8,7 +8,7 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 
 		self.createUserAccountIfNeeded()
-        
+		
         self.view.backgroundColor = UIColor.white
         self.navigationItem.hidesBackButton = true
         self.navigationItem.title = "Fresh Fridge"
@@ -70,9 +70,9 @@ class ViewController: UIViewController {
 		let ud = UserDefaults.standard
 		let familyToken = ud.object(forKey: "family-token") as! String
 		
-		let alert = UIAlertController(title: "消費期限をお知らせして欲しいグループにLINE botを招待して、下記の文字列をコピーして投稿して下さい。", message: familyToken, preferredStyle: .alert)
+		let alert = UIAlertController(title: "消費期限をお知らせして欲しいグループにLINE bot(@sok3197j)を招待して、下記の文字列をコピーして投稿して下さい。", message: "familytoken:\(familyToken)", preferredStyle: .alert)
 		
-		alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+		alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
 			self.dismiss(animated: true, completion: nil)
 		}))
 
