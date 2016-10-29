@@ -61,7 +61,7 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         self.view.addSubview(dateTextField)
         
         let myDatePicker = UIDatePicker()
-        myDatePicker.addTarget(self, action: Selector(("changedDateEvent:")), for: UIControlEvents.valueChanged)
+        myDatePicker.addTarget(self, action: #selector(changedDateEvent), for: UIControlEvents.valueChanged)
         myDatePicker.datePickerMode = UIDatePickerMode.date
         dateTextField.inputView = myDatePicker
 
