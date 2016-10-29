@@ -6,11 +6,9 @@ class BestBeforeDate {
 	let OCR_API_KEY = "AIzaSyAlELP4Ai9mzXNTPTuAXOIePoS09gxft-Y"
 	let MA_API_KEY = "a1493145bf328317de821d99f613bd60e076d72f91cd3750551fe4a61c7993a1"
 
-	var accessToken : Int
-	var callback : ([ String : (NSDate, Int) ]) -> Void // [ name : (best_before_data, price) ] -> Void
+	var callback : ([ String : (NSDate, Int, Int) ]) -> Void // [ name : (id, best_before_data, price) ] -> Void
 	
-	init(accessToken : Int, callback : @escaping ([ String : (NSDate, Int) ]) -> Void) {
-		self.accessToken = accessToken
+	init(callback : @escaping ([ String : (Int, NSDate, Int) ]) -> Void) {
 		self.callback = callback
 	}
 	
@@ -48,19 +46,19 @@ class BestBeforeDate {
 	}
 	
 	func ServerSideRequest(_ nouns: [ String ], original_text : String) {
-		Alamofire.request("https://hoge/piyo/", method: .post, parameters: [
-			"token": self.accessToken,
-			"nouns": nouns
+		Alamofire.request("https://app.uthackers-app.tk/item/candidate", method: .post, parameters: [
+			"query": [ "name": nouns ]
 		], encoding: JSONEncoding.default).responseJSON { response in
 			guard let object = response.result.value else { return }
 			let json = JSON(object)
 			var table : [ String : (NSDate, Int) ] = [ : ]
 			
-			json.arrayValue.forEach {
-				let date = calcDeadlineFromRangeString($0["date"])
-				let price = extractPriceFromFullText(original_text, word: $0["name"])
+			json["item_master"].arrayValue.forEach {
+				let id = $0["item_id"].to_i
+				let date = calcDeadlineFromRangeString($0["default_expire_days"])
+				let price = extractPriceFromFullText(original_text, word: $0["original_name"])
 				
-				table[name] = (date, price)
+				table[name] = (id, date, price)
 			}
 			
 			self.callback(table)
