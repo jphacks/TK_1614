@@ -9,6 +9,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BRYSerialAnimationQueue.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FlatUIKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MGSwipeTableCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FTHFoodTechHack.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -34,7 +49,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SSBouncyButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIColor-Hex.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UIImage+BetterAdditions.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,12 +72,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E2DD9FE65594361F652043B4C8BBFEA</key>
+		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>753C4D3AF48406DB3D0888E4DC8378DE</key>
+		<key>4FE952A6C96E083F4718AE1F0B04191F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>713C04034EFE911120C150235EBC5EBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9AEB3D619117C48FCBE77017775EBD8B</key>
+		<key>7B8E74552F2F28E6E02BF910A6065FFA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A52340DA4CAFBB0C73E513D7A7DD7A6E</key>
+		<key>7BE66160057809F32085A4C61CC05D6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +107,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>AD0892BE565CA9D5A839B9137561277C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D041D59293138C1767BE41266ABB63D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1F38CAE4F2C9029A7B1A66B6CA8C748</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D50AD57A5BF8EF7CBCF79B258A2551F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE9DCDA6D4A303B038431E27786F4A8A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF064334E53D4D2FB08DF4C34B9BB7EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

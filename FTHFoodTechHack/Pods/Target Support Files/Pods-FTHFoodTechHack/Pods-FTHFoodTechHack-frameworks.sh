@@ -85,13 +85,25 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/BRYSerialAnimationQueue/BRYSerialAnimationQueue.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FlatUIKit/FlatUIKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MGSwipeTableCell/MGSwipeTableCell.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SSBouncyButton/SSBouncyButton.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UIColor-Hex/UIColor_Hex.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UIImage+BetterAdditions/UIImage_BetterAdditions.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Alamofire/Alamofire.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/BRYSerialAnimationQueue/BRYSerialAnimationQueue.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FlatUIKit/FlatUIKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MGSwipeTableCell/MGSwipeTableCell.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SSBouncyButton/SSBouncyButton.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UIColor-Hex/UIColor_Hex.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/UIImage+BetterAdditions/UIImage_BetterAdditions.framework"
 fi
