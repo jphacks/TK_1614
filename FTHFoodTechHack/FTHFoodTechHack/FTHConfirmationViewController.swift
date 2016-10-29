@@ -12,10 +12,10 @@ class FTHConfirmationViewController: UIViewController {
 	func updateLocalDatabase(_ records : [ String : (NSDate, Int) ]) {
 		records.forEach { key, val in
 			try! realm?.write {
-				let foodStock = RealmFoodStock()
+				let foodStock = RealmFood()
 				foodStock.name = key
-				foodStock.exdate = val.0
-				foodStock.num = val.1
+				foodStock.date = val.0
+				foodStock.price = val.1
 				realm?.add(foodStock)
 			}
 		}

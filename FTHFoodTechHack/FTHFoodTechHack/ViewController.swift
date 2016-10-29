@@ -56,12 +56,12 @@ class ViewController: UIViewController {
 		let ud = UserDefaults.standard
 
 		if (ud.object(forKey: "x-access-token") != nil) { return }
-		
-		Alamofire.request("https://labs.goo.ne.jp/user/add", method: .post, parameters: [], encoding: JSONEncoding.default).responseJSON { response in
+
+		Alamofire.request("https://labs.goo.ne.jp/user/add", method: .post, encoding: JSONEncoding.default).responseJSON { response in
 			guard let object = response.result.value else { return }
 			let json = JSON(object)
 			
-			ud.set("x-access-token", forKey: json["user"]["access_token"])
+			ud.set("x-access-token", forKey: json["user"]["access_token"].string!)
 		}
 	}
 }
