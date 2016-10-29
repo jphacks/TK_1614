@@ -24,7 +24,7 @@ class FTHRecommendViewController: UIViewController, WKNavigationDelegate {
         self._webkitview = WKWebView(frame:CGRect(x:10, y:120, width:self.view.bounds.size.width - 10, height: self.view.bounds.size.height))
         //this is a hack.need to be fixed, letting FTH searchiing w multiple materials.
 
-        let urlstring = "http://recipe.rakuten.co.jp/search/ほうれん草"
+        let urlstring = "http://recipe.rakuten.co.jp/search/" + bestBeforeDate.name
         let url = NSURL(string:urlstring.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)!)
         let req = NSURLRequest(url:url as! URL)
         self._webkitview!.load(req as URLRequest)
