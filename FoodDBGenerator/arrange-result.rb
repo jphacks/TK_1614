@@ -19,7 +19,7 @@ while line = gets
 
     puts dates.split('&').map { |date|
       matched = date.match("(.+?)-(.+?)\s(.+)")
-      matched ? "#{(matched[1].to_i + matched[2].to_i) / 2.0} #{matched[3]}" : date
+      matched ? "#{matched[2].to_i} #{matched[3]}" : date
     }.min { |a, b|
       to_days(a) <=> to_days(b)
     }
