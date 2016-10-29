@@ -5,9 +5,9 @@ import SSBouncyButton
 
 class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlertViewDelegate{
 
-    let foodTextField = UITextField()
-    let numTextField = UITextField()
-    let dateTextField = UITextField()
+    let foodTextField = FUITextField()
+    let numTextField = FUITextField()
+    let dateTextField = FUITextField()
     
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.white
@@ -19,7 +19,11 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         
         foodTextField.frame = CGRectMake(foodLabel.frame.maxX, 100, 200 , 50)
         foodTextField.delegate = self
-        foodTextField.borderStyle = UITextBorderStyle.roundedRect
+        foodTextField.backgroundColor = UIColor.white
+        foodTextField.borderColor = UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
+        foodTextField.borderWidth = 2.0
+        foodTextField.cornerRadius = 3.0
+        
         foodTextField.layer.borderColor = UIColor.gray.cgColor
         foodTextField.layer.borderWidth = 1.0
         self.view.addSubview(foodTextField)
@@ -31,7 +35,10 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         
         numTextField.frame = CGRectMake(foodLabel.frame.maxX,foodLabel.frame.maxY + 10, 200 , 50)
         numTextField.delegate = self
-        numTextField.borderStyle = UITextBorderStyle.roundedRect
+        numTextField.text = "個数"
+        numTextField.borderColor = UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
+        numTextField.borderWidth = 2.0
+        numTextField.cornerRadius = 3.0
         numTextField.layer.borderColor = UIColor.gray.cgColor
         numTextField.layer.borderWidth = 1.0
         self.view.addSubview(numTextField)
@@ -43,14 +50,22 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         
         dateTextField.frame = CGRectMake(foodLabel.frame.maxX, numLabel.frame.maxY + 10, 200 , 50)
         dateTextField.delegate = self
-        dateTextField.borderStyle = UITextBorderStyle.roundedRect
+        dateTextField.textFieldColor = UIColor.clear
+        dateTextField.borderColor = UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
+        dateTextField.borderWidth = 2.0
+        dateTextField.cornerRadius = 3.0
         dateTextField.layer.borderColor = UIColor.gray.cgColor
         dateTextField.layer.borderWidth = 1.0
         self.view.addSubview(dateTextField)
         
-        let trybutton = SSBouncyButton()
+        let trybutton = FUIButton()
         trybutton.frame = CGRectMake(foodLabel.frame.maxX, dateTextField.frame.maxY + 10, 100, 50)
-        trybutton.backgroundColor =  UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
+        trybutton.buttonColor =  UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
+        trybutton.shadowColor = UIColor.red
+        trybutton.shadowHeight = 3.0
+        trybutton.cornerRadius = 6.0
+        
+
         trybutton.titleLabel?.textColor = UIColor.black
         
         trybutton.setTitle("追加する", for: UIControlState())

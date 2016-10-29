@@ -73,13 +73,11 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         picker.dismiss(animated: true, completion: nil)
         let bestBeforeDate = BestBeforeDate(callback: { (table : [ String : (NSDate, Int) ]) in
             print(table)
+            let confirmationViewController = FTHConfirmationViewController()
+            self.navigationController?.pushViewController(confirmationViewController, animated: true)
         })
         bestBeforeDate.fetch(myImageView.image!)
         //TODO(hkarasawa):これが確認viewです。
-        var finishSavingView = UITextView(frame:CGRect(x: 30, y: 200, width: self.view.bounds.size.width - 60 , height: 100))
-        finishSavingView.backgroundColor = UIColor.red
-        finishSavingView.text = "保存したよ！！！！！！！！"
-        self.view.addSubview(finishSavingView)
     }
     
         
