@@ -68,5 +68,18 @@ class ViewController: UIViewController {
 			ud.set("family-token", forKey: json["family"]["token"].string!)
 		}
 	}
+	
+	func showFamilyTokenDialog() {
+		let ud = UserDefaults.standard
+		let familyToken = ud.object(forKey: "family-token") as! String
+		
+		let alert = UIAlertController(title: "消費期限をお知らせして欲しいグループにLINE botを招待して、下記の文字列をコピーして投稿して下さい。", message: familyToken, preferredStyle: .alert)
+		
+		alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+			self.dismiss(animated: true, completion: nil)
+		}))
+
+		self.present(alert, animated: true, completion: nil)
+	}
 }
 
