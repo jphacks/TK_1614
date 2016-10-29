@@ -52,20 +52,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 	
-	func createUserAccountIfNeeded() {
-		return // user/addが機能してないので
-		
+	func createUserAccountIfNeeded() {		
 		let ud = UserDefaults.standard
 
-		if (ud.object(forKey: "x-access-token") != nil) { return }
-
-		Alamofire.request("https://labs.goo.ne.jp/user/add", method: .post, encoding: JSONEncoding.default).responseJSON { response in
+		if (ud.string(forKey: "x-access-token") != nil) { return }
+	
+		Alamofire.request("https://app.uthackers-app.tk/user/add", method: .post, parameters: [:], encoding: JSONEncoding.default).responseJSON { response in
 			guard let object = response.result.value else { return }
 			let json = JSON(object)
 			
-			ud.set("x-access-token", forKey: json["user"]["access_token"].string!)
-			ud.set("user-id", forKey: json["user"]["user_id"].string!)
-			ud.set("family-token", forKey: json["family"]["token"].string!)
+			ud.set(json["user"]["access_token"].string!, forKey: "x-access-token")
+			ud.set(json["family"]["token"].string!, forKey: "family-token")
 		}
 	}
 	
