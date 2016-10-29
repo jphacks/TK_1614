@@ -6,7 +6,7 @@ class BestBeforeDate {
 	let OCR_API_KEY = "AIzaSyAlELP4Ai9mzXNTPTuAXOIePoS09gxft-Y"
 	let MA_API_KEY = "a1493145bf328317de821d99f613bd60e076d72f91cd3750551fe4a61c7993a1"
 
-	var callback : ([ String : (NSDate, Int, Int) ]) -> Void // [ name : (id, best_before_data, price) ] -> Void
+	var callback : ([ String : (Int, NSDate, Int) ]) -> Void // [ name : (id, best_before_data, price) ] -> Void
 	
 	init(callback : @escaping ([ String : (Int, NSDate, Int) ]) -> Void) {
 		self.callback = callback
@@ -51,12 +51,13 @@ class BestBeforeDate {
 		], encoding: JSONEncoding.default).responseJSON { response in
 			guard let object = response.result.value else { return }
 			let json = JSON(object)
-			var table : [ String : (NSDate, Int) ] = [ : ]
+			var table : [ String : (Int, NSDate, Int) ] = [ : ]
 			
 			json["item_master"].arrayValue.forEach {
-				let id = $0["item_id"].string.to_i
-				let date = calcDeadlineFromRangeString($0["default_expire_days"].string)
-				let price = extractPriceFromFullText(original_text, word: $0["original_name"].string)
+				let id = Int($0["item_id"].string!)!
+				let name = $0["original_name"].string!
+				let date = self.calcDeadlineFromRangeString($0["default_expire_days"].string!)
+				let price = self.extractPriceFromFullText(original_text, word: name)
 				
 				table[name] = (id, date, price)
 			}
@@ -65,48 +66,56 @@ class BestBeforeDate {
 		}
 	}
 	
-	func extractPriceFromFullText(_ text: String, word: String) -> Int {
-		text.components(separatedBy: "\n").forEach {
-			if text.rangeOfString(word) != nil {
-				return extractPriceFrom(text, word: word)
+	func extractPriceFromFullText(_ full_text: String, word: String) -> Int {
+		for text in full_text.components(separatedBy: "\n") {
+			if text.contains(word) {
+				return self.extractPriceFromLine(text, word: word)
 			}
 		}
 		
 		return 0
 	}
 	
-	func extractPriceFromLine(_ text: String, word: String) -> Int {
-		text = text.replacingOccurrences(of: ",", with: "")
+	func extractPriceFromLine(_ _text: String, word: String) -> Int {
+		let text = _text.replacingOccurrences(of: ",", with: "")
 		
 		do {
 			let pattern = "([0-9]+)$"
 			let regex = try NSRegularExpression(pattern: pattern, options: [])
 			let results = regex.matches(in: text, options: [], range: NSMakeRange(0, text.characters.count))
 			
-			return Int((text as NSString).substring(with: results[0].range))
-		} catch let error as NSError {
+			return Int((text as NSString).substring(with: results[0].range))!
+		} catch _ as NSError {
 			return 0
 		}
 		
 		return 0
 	}
 	
-	func extractHeadNumber(_ d : String) {
-		let pattern = "^([0-9]+)"
-		let regex = try NSRegularExpression(pattern: pattern, options: [])
-		let results = regex.matches(in: d, options: [], range: NSMakeRange(0, d.characters.count))
-		return Int((text as NSString).substring(with: results[0].range))
+	func extractHeadNumber(_ d : String) -> Int {
+		do {
+			let pattern = "^([0-9]+)"
+			let regex = try NSRegularExpression(pattern: pattern, options: [])
+			let results = regex.matches(in: d, options: [], range: NSMakeRange(0, d.characters.count))
+			return Int((d as NSString).substring(with: results[0].range))!
+		} catch _ {
+			return 0
+		}
 	}
 	
-	func removeSuffixOnceRipe(_ d : String) {
-		let pattern = "once ripe"
-		let regex = try NSRegularExpression(pattern: pattern, options: [])
-		let results = regex.matches(in: d, options: [], range: NSMakeRange(0, d.characters.count))
-		return Int((text as NSString).substring(with: results[0].range))
+	func removeSuffixOnceRipe(_ d : String) -> Int {
+		do {
+			let pattern = "once ripe"
+			let regex = try NSRegularExpression(pattern: pattern, options: [])
+			let results = regex.matches(in: d, options: [], range: NSMakeRange(0, d.characters.count))
+			return Int((d as NSString).substring(with: results[0].range))!
+		} catch _ {
+			return 0
+		}
 	}
 	
 	func calcDeadlineFromRangeString(_ date: String) -> NSDate {
-		return NSDate(timeInterval: Int(date) * 60 * 60 * 24, sinceDate: NSDate())
+		return NSDate(timeIntervalSinceNow: Double(date)! * Double(60 * 60 * 24))
 	}
 	
 	func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {

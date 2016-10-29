@@ -26,6 +26,7 @@
 		45FC27431DBCC11E00E4C333 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC27421DBCC11E00E4C333 /* RealmSwift.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		45FC27451DBCC53B00E4C333 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC27421DBCC11E00E4C333 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45FC27481DBCC54600E4C333 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC27401DBCC0D100E4C333 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		46DC79431DC4FA45003D0CDD /* BestBeforeDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D01AB21DC1D45F00775C94 /* BestBeforeDate.swift */; };
 		81D4F7FBF36B0E8D66C7A5A4 /* Pods_FTHFoodTechHackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62BE4E7094A7502C21BA07B /* Pods_FTHFoodTechHackUITests.framework */; };
 		868FB2989522C9E01BF309F9 /* Pods_FTHFoodTechHackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3303515FD8507C746B47E8 /* Pods_FTHFoodTechHackTests.framework */; };
 		C8DCE18277A91EA5A77B85F9 /* Pods_FTHFoodTechHack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC1551EAFD06720EDA62F7A /* Pods_FTHFoodTechHack.framework */; };
@@ -500,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46DC79431DC4FA45003D0CDD /* BestBeforeDate.swift in Sources */,
 				45FC273F1DBC52D600E4C333 /* FTHFoodModel.swift in Sources */,
 				45FC270A1DBB569500E4C333 /* FTHFoodTechHack.xcdatamodeld in Sources */,
 				45366A031DBEEFFA00E1974B /* FTHAddChildViewController.swift in Sources */,
