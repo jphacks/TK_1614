@@ -65,6 +65,7 @@ class ViewController: UIViewController {
 			
 			ud.set("x-access-token", forKey: json["user"]["access_token"].string!)
 			ud.set("user-id", forKey: json["user"]["user_id"].string!)
+			ud.set("family-token", forKey: json["family"]["token"].string!)
 		}
 	}
 }
