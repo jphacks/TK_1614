@@ -11,32 +11,28 @@ open class FTHRefrigeratorModel :NSObject {
     override init () {
         let realm = try! Realm()
 
-        var count:Int
-        count = 0
-        for food in realm.objects(RealmFoodStock.self) {
-            if count < 15{
-                let newFood = FTHFoodModel(name:food.name, exdate: 0, num: 1)
+        for food in realm.objects(RealmFood.self) {
+            //add food to expiring if it will be dead in three days
+            if food.date.timeIntervalSince(NSDate() as Date) < 60*60*24*3 {
+                let newFood = FTHFoodModel(name: food.name, date: food.date,price: food.price)
                 self.expiringFoodStocks.append(newFood)
             } else {
-                let newFood = FTHFoodModel(name:food.name, exdate: 10, num: 1)
+                let newFood = FTHFoodModel(name: food.name, date: food.date,price: food.price)
                 self.normalFoodStocks.append(newFood)
             }
-            count += 1
         }
     }
     
-    open func addFoodByTyping(name:String, exdate:Int, num:Int){
+    open func addFoodByTyping(name:String, date:NSDate, price:Int){
         let realm = try! Realm()
         
-        let realmFoodStock = RealmFoodStock()
-        realmFoodStock.name = name
-        realmFoodStock.exdate = exdate
-        realmFoodStock.num = num
-        
+        let realmFood = RealmFood()
+        realmFood.name = name
+        realmFood.date = date
+        realmFood.price = price
         
         try! realm.write{
-            realm.add(realmFoodStock)
+            realm.add(realmFood)
         }
     }
-    
 }

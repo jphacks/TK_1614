@@ -51,10 +51,11 @@ class FTHSeeUIViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  MGSwipeTableCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "FoodCell")
 
+        //表示直します
         if (indexPath as NSIndexPath).section == 0 {
-            cell.textLabel?.text = fthRefrigeratorModel.expiringFoodStocks[(indexPath as NSIndexPath).row].name + " Expiration date : "+String(fthRefrigeratorModel.expiringFoodStocks[(indexPath as NSIndexPath).row].exdate)
+            cell.textLabel?.text = fthRefrigeratorModel.expiringFoodStocks[(indexPath as NSIndexPath).row].name + " Expiration date : "+String(describing: fthRefrigeratorModel.expiringFoodStocks[(indexPath as NSIndexPath).row].date)
         } else if (indexPath as NSIndexPath).section == 1 {
-            cell.textLabel?.text = fthRefrigeratorModel.normalFoodStocks[(indexPath as NSIndexPath).row].name + " Expiration date : "+String(fthRefrigeratorModel.normalFoodStocks[(indexPath as NSIndexPath).row].exdate)
+            cell.textLabel?.text = fthRefrigeratorModel.normalFoodStocks[(indexPath as NSIndexPath).row].name + " Expiration date : "+String(describing: fthRefrigeratorModel.normalFoodStocks[(indexPath as NSIndexPath).row].date)
         }
         
         //implemented left and right buttons to enable users to remove/send line to fams.
