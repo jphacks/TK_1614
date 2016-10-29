@@ -182,6 +182,7 @@
 				45FC27381DBC472600E4C333 /* FTHRefrigeratorModel.swift */,
 				45FC273E1DBC52D600E4C333 /* FTHFoodModel.swift */,
 				45124DF91DC510A7005854B1 /* RealmFood.swift */,
+				462D043D1DC52BBE00BDE62B /* FTHRegisterDeviceViewController.swift */,
 				45FC27421DBCC11E00E4C333 /* RealmSwift.framework */,
 				45FC27401DBCC0D100E4C333 /* Realm.framework */,
 				45FC270B1DBB569500E4C333 /* Assets.xcassets */,
@@ -190,7 +191,6 @@
 				45FC27081DBB569500E4C333 /* FTHFoodTechHack.xcdatamodeld */,
 				46D01AB21DC1D45F00775C94 /* BestBeforeDate.swift */,
 				4684D13C1DC47E2B00684668 /* MyPlayground.playground */,
-				462D043D1DC52BBE00BDE62B /* FTHRegisterDeviceViewController.swift */,
 			);
 			path = FTHFoodTechHack;
 			sourceTree = "<group>";
