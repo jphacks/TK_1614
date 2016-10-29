@@ -84,7 +84,6 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-        
     func didTapAddbyTypingButton(_ sender: UIButton){
         let addChildViewController = FTHAddChildViewController()
         self.navigationController?.pushViewController(addChildViewController, animated: true)
