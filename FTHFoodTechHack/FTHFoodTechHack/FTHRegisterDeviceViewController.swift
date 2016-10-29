@@ -13,30 +13,46 @@ import UIKit
 import AVFoundation
 
 class FTHRegisterDeviceViewController : ViewController, AVCaptureMetadataOutputObjectsDelegate {
-	let session = AVCaptureSession()
-
 	override func viewDidLoad() {
-		let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-		let input = try? AVCaptureDeviceInput(device: device)
-		session.addInput(input)
+		let mySession: AVCaptureSession! = AVCaptureSession()
+		let devices = AVCaptureDevice.devices()
+		var myDevice: AVCaptureDevice!
+
+		for device in devices! {
+			if((device as AnyObject).position == AVCaptureDevicePosition.back){
+				myDevice = device as! AVCaptureDevice
+			}
+		}
 		
-		let output = AVCaptureMetadataOutput()
-		output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-		session.addOutput(output)
-		output.metadataObjectTypes = output.availableMetadataObjectTypes
+		let myVideoInput = try! AVCaptureDeviceInput.init(device: myDevice)
+
+		if mySession.canAddInput(myVideoInput) {
+			mySession.addInput(myVideoInput)
+		}
 		
-		let layer = AVCaptureVideoPreviewLayer(session: session)
-		layer?.frame = view.bounds
-		layer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-		view.layer.addSublayer(layer!)
+		let myMetadataOutput: AVCaptureMetadataOutput! = AVCaptureMetadataOutput()
 		
-		session.startRunning()
+		if mySession.canAddOutput(myMetadataOutput) {
+			mySession.addOutput(myMetadataOutput)
+			myMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+			myMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+		}
+		
+		let myVideoLayer = AVCaptureVideoPreviewLayer.init(session: mySession)
+		myVideoLayer?.frame = self.view.bounds
+		myVideoLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+
+		self.view.layer.addSublayer(myVideoLayer!)
+		
+		mySession.startRunning()
 	}
 	
-	private func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
-		
-		print(metadataObjects.flatMap { $0.stringValue })
-		self.registerDevice(metadataObjects.flatMap { $0.stringValue }.joined())
+	private func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, from connection: AVCaptureConnection!) {
+		if metadataObjects.count > 0 {
+			let qrData: AVMetadataMachineReadableCodeObject  = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+			print("\(qrData.type)")
+			print("\(qrData.stringValue)")
+		}
 	}
 	
 	func registerDevice(_ token : String) {
