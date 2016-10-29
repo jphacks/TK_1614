@@ -88,8 +88,6 @@ class BestBeforeDate {
 		} catch _ as NSError {
 			return 0
 		}
-		
-		return 0
 	}
 	
 	func extractHeadNumber(_ d : String) -> Int {
