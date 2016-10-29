@@ -71,7 +71,7 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         myImageView.isHidden = true
         }
         picker.dismiss(animated: true, completion: nil)
-        let bestBeforeDate = BestBeforeDate(callback: { (table : [ String : (NSDate, Int) ]) in
+        let bestBeforeDate = BestBeforeDate(callback: { (table : [ String : (Int, NSDate, Int) ]) in
             print(table)
             let confirmationViewController = FTHConfirmationViewController()
             self.navigationController?.pushViewController(confirmationViewController, animated: true)
@@ -80,7 +80,6 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         //TODO(hkarasawa):これが確認viewです。
     }
     
-        
     func didTapAddbyTypingButton(_ sender: UIButton){
         let addChildViewController = FTHAddChildViewController()
         self.navigationController?.pushViewController(addChildViewController, animated: true)
