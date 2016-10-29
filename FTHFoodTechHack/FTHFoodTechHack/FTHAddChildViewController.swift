@@ -62,13 +62,13 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
     
     func didTapAddButton(sender: UIButton){
         let realm = try! Realm()
-        let realmFoodStock = RealmFoodStock()
-        realmFoodStock.name = foodTextField.text!
-        realmFoodStock.exdate = Int(dateTextField.text!)!
-        realmFoodStock.num = Int(numTextField.text!)!
+        let realmFood = RealmFood()
+        realmFood.name = foodTextField.text!
+        realmFood.date = NSDate()
+        realmFood.price = 100
         
         try! realm.write{
-            realm.add(realmFoodStock)
+            realm.add(realmFood)
         }
         
     }

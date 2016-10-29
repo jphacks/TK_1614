@@ -32,7 +32,6 @@ class FTHRecommendViewController: UIViewController, WKNavigationDelegate {
 
       print("Best BEfore Food is %s", bestBeforeDate.name)
         
-        
     }
     
     override func didReceiveMemoryWarning() {

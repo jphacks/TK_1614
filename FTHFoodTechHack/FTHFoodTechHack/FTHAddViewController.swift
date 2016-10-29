@@ -8,7 +8,6 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
     var myImageView:UIImageView!
     
     override func viewDidLoad() {
-		print("VIEW DID LOAD================================")
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -31,6 +30,8 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         typingButton.setTitle("入力する", for: UIControlState())
         typingButton.addTarget(self, action: #selector(didTapAddbyTypingButton), for:.touchUpInside)
         self.view.addSubview(typingButton)
+        
+        self.setupImageView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,17 +57,31 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
     func pickImageFromCamera() {
         let myPickerController = UIImagePickerController()
         myPickerController.delegate = self;
-        myPickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        myPickerController.sourceType = UIImagePickerControllerSourceType.camera
         
         self.present(myPickerController, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
-        myImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        myImageView.image = pickedImage
         myImageView.backgroundColor = UIColor.clear
-        myImageView.contentMode = UIViewContentMode.scaleAspectFit
-        self.dismiss(animated: true, completion: nil)
+        myImageView.contentMode = .scaleAspectFit
+        myImageView.isHidden = true
+        }
+        picker.dismiss(animated: true, completion: nil)
+        let bestBeforeDate = BestBeforeDate(callback: { (table : [ String : (Int, NSDate, Int) ]) in
+            print(table)
+        })
+        bestBeforeDate.fetch(myImageView.image!)
+    }
+    
+    func image(image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
+        if error != nil {
+            //プライバシー設定不許可など書き込み失敗時は -3310 (ALAssetsLibraryDataUnavailableError)
+            print(error.code)
+        }
     }
     
     func didTapAddbyTypingButton(_ sender: UIButton){
