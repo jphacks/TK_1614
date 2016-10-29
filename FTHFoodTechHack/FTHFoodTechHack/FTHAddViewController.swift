@@ -8,6 +8,7 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
     var myImageView:UIImageView!
     
     override func viewDidLoad() {
+		print("VIEW DID LOAD================================")
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         

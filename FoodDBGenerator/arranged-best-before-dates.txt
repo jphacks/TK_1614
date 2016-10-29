@@ -1,0 +1,107 @@
+アーティチョーク&あーてぃちょーく&&artichoke&Artichoke&&7 days
+アサリ&あさり&&Clam&Clams&&1.5 days
+アスパラガス&あすぱらがす&&Asparagus&Asuparagasu&&3.5 days
+アボカド&あぼかど&&Avocado&Avocado&&2.5 days
+アルファルファ&あるふぁるふぁ&&Alfalfa&Alfalfa&&2.5 days
+アンズ&あんず&&Apricot&Apricots&&3.5 days
+イカ&いか&&squid&The squid&&1.5 days
+イチゴ&いちご&&Strawberry&Strawberry&&2.5 days
+イチジク&いちじく&&fig&figs&&1.5 days
+ウメ&うめ&&Prunus mume&Plum&&2.5 days
+エシャロット&えしゃろっと&&shallot&Shallot&&2.5 days
+エビ&えび&&shrimp&Shrimp&&1.5 days
+エンダイブ&えんだいぶ&&endive&Endive&&4.5 days
+オクラ&おくら&&Okra&Okra&&2.5 days
+オレガノ&おれがの&&oregano&Oregano&&12.0 days
+オレンジ&おれんじ&&orange&Orange&&1.5 days
+カキ&柿&かき&&oyster&persimmon&Oysters&&1.5 days
+カキ&牡蠣&かき&&oyster&oyster&Oysters&&1.5 days
+カジキ&かじき&&Marlin&swordfish&&1.5 days
+カニ&かに&&crab&Crab&&1.5 days
+カブ&かぶ&&Turnip&Turnip&&1.5 days
+カボチャ&かぼちゃ&&Pumpkin&pumpkin&&3.0 days
+カラシナ&からしな&&Mustard&Mustard&&1.5 days
+カリフラワー&かりふらわー&&cauliflower&Cauliflower&&1 week
+カレイ&かれい&&Flounder&Sole&&1.5 days
+キャベツ&きゃべつ&&cabbage&Cabbage&&4.5 days
+牛肉&&beef&&1.5 days
+キュウリ&きゅうり&&cucumber&Cucumber&&1.5 days
+キンカン&きんかん&&Kumquat&Kumquat&&2.5 weeks
+グァバ&ぐぁば&&Guava&Guava&&3.5 days
+クランベリー&くらんべりー&&cranberry&Cranberry&&3.5 days
+クリ&くり&&Chestnut&Chestnut&&7 days
+グレープフルーツ&ぐれーぷふるーつ&&grapefruit&Grapefruit&&3.5 days
+クレソン&くれそん&&Watercress&Watercress&&2.5 days
+クワイ&くわい&&Arrowhead&Chestnut&&7 days
+ケール&けーる&&Kale&Kale&&6.0 days
+コイ&鯉&こい&&Koi&carp&Come&&1.5 days
+ゴボウ&ごぼう&&Burdock&Burdock&&10.5 days
+サクランボ&さくらんぼ&&Cherry&Cherry&&2.5 days
+ザクロ&ざくろ&&pomegranate&Pomegranate&&1.5 months
+サケ&さけ&&salmon&Salmon&&1.5 days
+ササゲ&ささげ&&Cowpea&Dedicated&&2 days
+サトイモ&さといも&&Colocasia esculenta&Taro&&2.5 days
+サバ&さば&&mackerel&Mackerel&&1.5 days
+サンチュ&さんちゅ&&Lettuce&Lettuce&&1.5 days
+ショウガ&しょうが&&Ginger&Ginger&&2.5 weeks
+スイカ&すいか&&watermelon&Watermelon&&3.5 days
+スズキ&すずき&&Suzuki&Perch&&1.5 days
+ズッキーニ&ずっきーに&&zucchini&Zucchini&&2.5 days
+スプラウト&すぷらうと&&Sprout&Sprout&&2.5 days
+スモモ&すもも&&Prune&Plum&&2.5 days
+セージ&せーじ&&Sage&Sage&&12.0 days
+セリ&せり&&Japanese parsley&Parsley&&8.5 days
+セロリ&せろり&&celery&Celery&&1.5 weeks
+ダイコン&だいこん&&Radish&Radish&&12.0 days
+ダイズ&だいず&&Glycine max&Soybean&&4.0 days
+タコ&たこ&&octopus&Octopus&&1.5 days
+タマゴ&鶏卵&たまご&&Egg&Chicken egg&Eggs&&3.0 days
+タマネギ&たまねぎ&&onion&Onions&&6.0 days
+タラ&鱈&たら&&Tara&cod&When&&1.5 days
+タラゴン&たらごん&&Tarragon&Tarragon&&12.0 days
+タンポポ&たんぽぽ&&Dandelion&Dandelion&&1.5 days
+チコリー&ちこりー&&Chicory&Chicory&&4.0 days
+チャービル&ちゃーびる&&chervil&Chervil&&12.0 days
+トウガラシ&とうがらし&&Pepper&Red pepper&&1.5 days
+トウモロコシ&とうもろこし&&corn&Corn&&1.5 days
+トマト&とまと&&Tomato&Tomatoes&&2.5 days
+鶏肉&&chicken&&1.5 days
+ナマコ&なまこ&&Sea cucumber&Pig&&1.5 days
+ニンジン&にんじん&&carrot&Carrot&&2.5 weeks
+ニンニク&にんにく&&garlic&Garlic&&1.5 days
+ネギ&ナガネギ&ねぎ&ながねぎ&&Green onion&Onions&Green onions&Onions&&6.0 days
+パイナップル&ぱいなっぷる&&pineapple&Pineapple&&3.5 days
+パクチー&ぱくちー&&Coriander&Fresh coriander&&8.5 days
+パセリ&ぱせり&&parsley&Parsley&&8.5 days
+バナナ&ばなな&&banana&Banana&&1.5 days
+パパイア&ぱぱいあ&&Papaya&Papaya&&2.5 days once ripe
+ハマグリ&はまぐり&&Clam&clam&&1.5 days
+ヒヨコ豆&ひよこ豆&&Chickpeas&Chickpeas&&2 days
+ヒラメ&ひらめ&&flounder&Flounder&&1.5 days
+フェンネル&ふぇんねる&&Fennel&Fennel&&8.5 days
+フカヒレ&ふかひれ&&Shark fin&Shark&#39;s fin&&1.5 days
+豚肉&&pork&&1.5 days
+ブドウ&ぶどう&&Grape&Grape&&6.0 days
+ブルーベリー&ぶるーべりー&&blueberry&Blueberry&&1.5 weeks
+ブロッコリー&ぶろっこりー&&broccoli&Broccoli&&4.0 days
+ホウレンソウ&ほうれんそう&&Spinach&Spinach&&4.0 days
+ホタテ貝&ほたて貝&&scallop&Scallop&&2.5 days
+マグロ&まぐろ&&Tuna&Tuna&&1.5 days
+マスタード&ますたーど&&mustard&Mustard&&1.5 days
+マッシュルーム&まっしゅるーむ&&mushroom&Mushroom&&1.5 days
+マンゴー&まんごー&&mango&Mango&&3.5 days
+ミカン&温州みかん&みかん&温州ミカン&&Orange&Wenzhou oranges&Mandarin orange&Satsuma mandarin&&1.5 days
+ミント&みんと&&mint&Mint&&8.5 days
+めかぶ&メカブ&&Turnips&Sporophyll&&1.5 days
+メロン&めろん&&melon&Melon&&3.5 days
+モモ&もも&&peach&Peaches&&3.5 days
+モヤシ&もやし&&Bean sprouts&Sprout&&2.5 days
+ライム&らいむ&&lime&Lime&&3.5 days
+ラッキョウ&らっきょう&&Rakkyo&Shallots&&2.5 days
+リンゴ&りんご&&Apple&Apple&&3.5 days
+ルッコラ&るっこら&&arugula&Arugula&&2.5 days
+ルバーブ&るばーぶ&&Rhubarb&Rhubarb&&6.0 days
+レタス&れたす&&lettuce&Lettuce&&1.5 days
+レモン&れもん&&Lemon&Lemon&&3.5 days
+レモングラス&れもんぐらす&&lemongrass&Lemon grass&&12.0 days
+ローズマリー&ろーずまりー&&Rosemary&Rozumari&&12.0 days

@@ -26,6 +26,7 @@
 		45FC27431DBCC11E00E4C333 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC27421DBCC11E00E4C333 /* RealmSwift.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		45FC27451DBCC53B00E4C333 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC27421DBCC11E00E4C333 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45FC27481DBCC54600E4C333 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC27401DBCC0D100E4C333 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		46D01AB31DC1D45F00775C94 /* BestBeforeDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D01AB21DC1D45F00775C94 /* BestBeforeDate.swift */; };
 		81D4F7FBF36B0E8D66C7A5A4 /* Pods_FTHFoodTechHackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62BE4E7094A7502C21BA07B /* Pods_FTHFoodTechHackUITests.framework */; };
 		868FB2989522C9E01BF309F9 /* Pods_FTHFoodTechHackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3303515FD8507C746B47E8 /* Pods_FTHFoodTechHackTests.framework */; };
 		C8DCE18277A91EA5A77B85F9 /* Pods_FTHFoodTechHack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC1551EAFD06720EDA62F7A /* Pods_FTHFoodTechHack.framework */; };
@@ -89,6 +90,7 @@
 		45FC273E1DBC52D600E4C333 /* FTHFoodModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTHFoodModel.swift; sourceTree = "<group>"; };
 		45FC27401DBCC0D100E4C333 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		45FC27421DBCC11E00E4C333 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		46D01AB21DC1D45F00775C94 /* BestBeforeDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestBeforeDate.swift; sourceTree = "<group>"; };
 		97A4A03148608FDBECEB2BFA /* Pods-FTHFoodTechHackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FTHFoodTechHackUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FTHFoodTechHackUITests/Pods-FTHFoodTechHackUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A8340AF54E6110FA8B4A79F0 /* Pods-FTHFoodTechHackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FTHFoodTechHackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FTHFoodTechHackTests/Pods-FTHFoodTechHackTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BDC1551EAFD06720EDA62F7A /* Pods_FTHFoodTechHack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FTHFoodTechHack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,10 +168,10 @@
 				45FC27011DBB569500E4C333 /* AppDelegate.swift */,
 				45FC27031DBB569500E4C333 /* ViewController.swift */,
 				45FC27051DBB569500E4C333 /* Main.storyboard */,
-				45FC273A1DBC4F2F00E4C333 /* FTHAddViewController.swift */,
 				45366A021DBEEFFA00E1974B /* FTHAddChildViewController.swift */,
 				45FC273C1DBC51D400E4C333 /* FTHRecommendViewController.swift */,
 				45FC27361DBB7B6A00E4C333 /* FTHSeeUIViewController.swift */,
+				45FC273A1DBC4F2F00E4C333 /* FTHAddViewController.swift */,
 				45FC27381DBC472600E4C333 /* FTHRefrigeratorModel.swift */,
 				45FC273E1DBC52D600E4C333 /* FTHFoodModel.swift */,
 				45ED30FC1DBCF0420013089D /* RealmFoodStock.swift */,
@@ -179,6 +181,7 @@
 				45FC270D1DBB569500E4C333 /* LaunchScreen.storyboard */,
 				45FC27101DBB569500E4C333 /* Info.plist */,
 				45FC27081DBB569500E4C333 /* FTHFoodTechHack.xcdatamodeld */,
+				46D01AB21DC1D45F00775C94 /* BestBeforeDate.swift */,
 			);
 			path = FTHFoodTechHack;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				45FC27371DBB7B6A00E4C333 /* FTHSeeUIViewController.swift in Sources */,
 				45FC273B1DBC4F2F00E4C333 /* FTHAddViewController.swift in Sources */,
 				45FC273D1DBC51D400E4C333 /* FTHRecommendViewController.swift in Sources */,
+				46D01AB31DC1D45F00775C94 /* BestBeforeDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

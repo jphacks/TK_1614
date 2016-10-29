@@ -20,31 +20,6 @@ class BestBeforeDate {
 		self.callback = callback
 	}
 	
-	func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {
-		UIGraphicsBeginImageContext(imageSize)
-		image.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
-
-		let newImage = UIGraphicsGetImageFromCurrentImageContext()
-		let resizedImage = UIImagePNGRepresentation(newImage!)
-		
-		UIGraphicsEndImageContext()
-		
-		return resizedImage!
-	}
-	
-	func base64EncodeImage(_ image: UIImage) -> String {
-		var imagedata = UIImagePNGRepresentation(image)!
-		
-		if (imagedata.count > 2097152) {
-			let oldSize: CGSize = image.size
-			let newSize: CGSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
-			
-			imagedata = resizeImage(newSize, image: image)
-		}
-		
-		return imagedata.base64EncodedString(options: .endLineWithCarriageReturn)
-	}
-	
 	func fetch(_ image : UIImage) {
 		self.OCRRequest(base64EncodeImage(image))
 	}
@@ -87,5 +62,30 @@ class BestBeforeDate {
 		}
 		
 		callback(table)
+	}
+	
+	func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {
+		UIGraphicsBeginImageContext(imageSize)
+		image.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
+		
+		let newImage = UIGraphicsGetImageFromCurrentImageContext()
+		let resizedImage = UIImagePNGRepresentation(newImage!)
+		
+		UIGraphicsEndImageContext()
+		
+		return resizedImage!
+	}
+	
+	func base64EncodeImage(_ image: UIImage) -> String {
+		var imagedata = UIImagePNGRepresentation(image)!
+		
+		if (imagedata.count > 2097152) {
+			let oldSize: CGSize = image.size
+			let newSize: CGSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
+			
+			imagedata = resizeImage(newSize, image: image)
+		}
+		
+		return imagedata.base64EncodedString(options: .endLineWithCarriageReturn)
 	}
 }
