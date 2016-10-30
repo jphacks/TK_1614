@@ -73,6 +73,7 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         picker.dismiss(animated: true, completion: nil)
         let bestBeforeDate = BestBeforeDate(callback: { (table : [ String : (Int, NSDate, Int) ]) in
             print(table)
+            
         })
         bestBeforeDate.fetch(myImageView.image!)
     }

@@ -52,7 +52,7 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         trybutton.frame = CGRectMake(foodLabel.frame.maxX, dateTextField.frame.maxY + 10, 100, 50)
         trybutton.backgroundColor =  UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
         trybutton.titleLabel?.textColor = UIColor.black
-        
+        //need to 
         trybutton.setTitle("追加する", for: UIControlState())
         trybutton.addTarget(self, action: #selector(didTapAddButton), for:.touchUpInside)
         self.view.addSubview(trybutton)
