@@ -11,11 +11,6 @@ class FTHConfirmationViewController: UIViewController {
         myScrollView.contentSize = CGSize(width:self.view.frame.size.width, height:2000)
         self.view.addSubview(myScrollView)
         
-//        for index in 1...5 {
-//            let confirmationView = FTHConfirmationSubView(frame: , name:, date: , price: )
-//            confirmationView.dateTextField.inputView = 
-//            
-//        }
     }
     
 }
