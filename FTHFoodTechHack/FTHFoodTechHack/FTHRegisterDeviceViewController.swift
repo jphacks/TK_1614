@@ -29,7 +29,7 @@ class FTHRegisterDeviceViewController : UIViewController, AVCaptureMetadataOutpu
 	}
 	
 	func registerDevice(_ token : String) {
-		Alamofire.request("https://app.uthackers-app.tk/item/candidate", method: .post, parameters: [
+		Alamofire.request("https://app.uthackers-app.tk/user/connect", method: .post, parameters: [
 			"family" : [ "token" : token ]
 		], encoding: JSONEncoding.default).responseJSON { response in
 			guard let object = response.result.value else { return }

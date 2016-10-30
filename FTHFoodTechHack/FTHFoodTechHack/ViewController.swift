@@ -5,8 +5,9 @@ import FlatUIKit
 
 class ViewController: UIViewController {
     
-    override func viewDidLoad() {		
-        super.viewDidLoad()
+    override func viewDidLoad() {
+		super.viewDidLoad()
+		self.createUserAccountIfNeeded()
         
         self.view.backgroundColor = UIColor.white
         self.navigationItem.hidesBackButton = true
@@ -64,5 +65,20 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	func createUserAccountIfNeeded() {
+		return // user/addが機能してないので
+		
+		let ud = UserDefaults.standard
+
+		if (ud.object(forKey: "x-access-token") != nil) { return }
+
+		Alamofire.request("https://labs.goo.ne.jp/user/add", method: .post, encoding: JSONEncoding.default).responseJSON { response in
+			guard let object = response.result.value else { return }
+			let json = JSON(object)
+			
+			ud.set("x-access-token", forKey: json["user"]["access_token"].string!)
+		}
+	}
 }
 

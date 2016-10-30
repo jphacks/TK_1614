@@ -73,17 +73,13 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         picker.dismiss(animated: true, completion: nil)
         let bestBeforeDate = BestBeforeDate(callback: { (table : [ String : (Int, NSDate, Int) ]) in
             print(table)
+
             let confirmationViewController = FTHConfirmationViewController(table:table)
+
             self.navigationController?.pushViewController(confirmationViewController, animated: true)
         })
         bestBeforeDate.fetch(myImageView.image!)
-    }
-    
-    func image(image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
-        if error != nil {
-            //プライバシー設定不許可など書き込み失敗時は -3310 (ALAssetsLibraryDataUnavailableError)
-            print(error.code)
-        }
+        //TODO(hkarasawa):これが確認viewです。
     }
     
     func didTapAddbyTypingButton(_ sender: UIButton){
