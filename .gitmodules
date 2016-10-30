@@ -1,3 +1,6 @@
 [submodule "jphacks_android"]
 	path = jphacks_android
 	url = https://github.com/totetotetotem/jphacks_android.git
+[submodule "jphacks_php"]
+	path = jphacks_php
+	url = https://github.com/totetotetotem/jphacks_php.git
