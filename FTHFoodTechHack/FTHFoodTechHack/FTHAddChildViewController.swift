@@ -48,6 +48,11 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         dateTextField.layer.borderWidth = 1.0
         self.view.addSubview(dateTextField)
         
+        let myDatePicker = UIDatePicker()
+        myDatePicker.addTarget(self, action: #selector(changedDateEvent), for: UIControlEvents.valueChanged)
+        myDatePicker.datePickerMode = UIDatePickerMode.date
+        dateTextField.inputView = myDatePicker
+        
         let trybutton = SSBouncyButton()
         trybutton.frame = CGRectMake(foodLabel.frame.maxX, dateTextField.frame.maxY + 10, 100, 50)
         trybutton.backgroundColor =  UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
@@ -71,10 +76,27 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         try! realm.write{
             realm.add(realmFood)
         }
-        
     }
+    
+    func changedDateEvent(sender:AnyObject?){
+        let dateSelecter: UIDatePicker = sender as! UIDatePicker
+        self.dateTextField.text = self.stringFromDate(date: dateSelecter.date as NSDate, format: "yyyy年MM月dd日")
+    }
+
     
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
         return CGRect(x: x, y: y, width: width, height: height)
+    }
+    
+    func dateFromString(string: String, format: String) -> NSDate {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.date(from: string)! as NSDate
+    }
+    
+    func stringFromDate(date: NSDate, format: String) -> String {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: date as Date)
     }
 }
