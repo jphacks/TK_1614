@@ -76,7 +76,8 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         trybutton.titleLabel?.textColor = UIColor.black
         trybutton.setTitle("追加する", for: UIControlState())
         trybutton.addTarget(self, action: #selector(didTapAddButton), for:.touchUpInside)
-        self.view.addSubview(trybutton)       
+        self.view.addSubview(trybutton)
+        
     }
 
     override func didReceiveMemoryWarning() {}

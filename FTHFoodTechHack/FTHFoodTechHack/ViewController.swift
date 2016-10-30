@@ -1,12 +1,12 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
+import FlatUIKit
 
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
 		super.viewDidLoad()
-
 		self.createUserAccountIfNeeded()
         
         self.view.backgroundColor = UIColor.white
@@ -30,6 +30,14 @@ class ViewController: UIViewController {
         recButton.setBackgroundImage(#imageLiteral(resourceName: "seerecomendation"), for: UIControlState.normal)
         recButton.addTarget(self, action: #selector(didTapRecommendButton), for: .touchUpInside)
         self.view.addSubview(recButton)
+        
+        let addDeviceQRButton = FUIButton(frame:CGRect(x:50, y:recButton.frame.maxY + 30, width: 100, height: 60))
+        addDeviceQRButton.shadowColor = UIColor.red
+        addDeviceQRButton.buttonColor = UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
+        addDeviceQRButton.titleLabel?.text = "AddDevice"
+        addDeviceQRButton.titleLabel?.tintColor = UIColor.black
+        addDeviceQRButton.addTarget(self, action: #selector(didTapQrButton), for: .touchUpInside)
+        self.view.addSubview(addDeviceQRButton)
     }
     
     func didTapSeeButton(_ sender:UIButton!){
@@ -40,6 +48,12 @@ class ViewController: UIViewController {
     func didTapAddButton(_ sender: UIButton) {
         let addViewController = FTHAddViewController()
         self.navigationController?.pushViewController(addViewController, animated: true)
+    }
+    
+    func didTapQrButton(_ sender: UIButton){
+        let addQRViewController = FTHRegisterDeviceViewController()
+        self.navigationController?.pushViewController(addQRViewController, animated: true)
+
     }
     
     func didTapRecommendButton(_ sender: UIButton) {
