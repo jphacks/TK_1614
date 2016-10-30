@@ -1,0 +1,3 @@
+[submodule "jphacks_android"]
+	path = jphacks_android
+	url = https://github.com/totetotetotem/jphacks_android.git
