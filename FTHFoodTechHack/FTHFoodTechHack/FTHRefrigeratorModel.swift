@@ -21,10 +21,10 @@ open class FTHRefrigeratorModel :NSObject {
         for food in realm.objects(RealmFood.self) {
             //add food to expiring if it will be dead in three days
             if food.date.timeIntervalSince(NSDate() as Date) < 60*60*24*3 {
-                let newFood = FTHFoodModel(name: food.name, date: food.date,price: food.price)
+                let newFood = FTHFoodModel(name: food.name, date: food.date,price: food.price, id: 0)
                 self.expiringFoodStocks.append(newFood)
             } else {
-                let newFood = FTHFoodModel(name: food.name, date: food.date,price: food.price)
+                let newFood = FTHFoodModel(name: food.name, date: food.date,price: food.price, id: 0)
                 self.normalFoodStocks.append(newFood)
             }
         }

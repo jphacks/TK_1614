@@ -24,8 +24,6 @@ class FTHRegisterDeviceViewController : UIViewController, AVCaptureMetadataOutpu
 		} else {
 			registerDevice(results[0].messageString!)
 		}
-        let viewController = ViewController()
-        self.navigationController?.pushViewController(viewController, animated: true)
 	}
 	
 	func registerDevice(_ token : String) {
@@ -67,6 +65,7 @@ class FTHRegisterDeviceViewController : UIViewController, AVCaptureMetadataOutpu
             self.readQR(qrImageView.image!)
         }
         picker.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
