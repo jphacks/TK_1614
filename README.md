@@ -1,8 +1,8 @@
-# Frech Fridge
+# Fresh Fridge
 ## 製品概要
 ### Food Tech
 ### 背景（製品開発のきっかけ、課題等）
-課題：日本の一般家庭から廃棄される（本来なら食べられるはずの）食品は年間200〜400万t。（出展：[食品ロス削減に向けて](http://www.maff.go.jp/j/shokusan/recycle/syoku_loss/pdf/0902shokurosu.pdf)
+課題：日本の一般家庭から廃棄される（本来なら食べられるはずの）食品は年間200〜400万t。（出展：[食品ロス削減に向けて](http://www.maff.go.jp/j/shokusan/recycle/syoku_loss/pdf/0902shokurosu.pdf)）
 今回のFreshFridgeでは、こう言った家庭から出る食品の廃棄を減らすため、iPhoneアプリケーションとRaspberryPiを組み合わせ、冷蔵庫と消費者のスマートフォンと連動させたアプリケーションを作成し、ユーザーが食品を無駄にすることなく使ってもらうことを目指している。
 ### 製品説明（具体的な製品の説明）
 ### 特長
