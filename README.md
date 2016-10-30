@@ -23,23 +23,26 @@
 
 
 ### 活用した外部技術
-*Rakuten MA(形態素解析)<https://github.com/rakuten-nlp/rakutenma/blob/master/README-ja.md>
-*Google Could Vision API(画像解析)<https://cloud.google.com/vision/>
+
+* Rakuten MA(形態素解析)<https://github.com/rakuten-nlp/rakutenma/blob/master/README-ja.md>
+* Google Could Vision API(画像解析)<https://cloud.google.com/vision/>
 
 #### API・データ
-*Google Could Vision API  
-*StillTasty  
-*
+* Google Could Vision API  
+* StillTasty  
 
 #### フレームワーク・ライブラリ・モジュール
-* 
-* 
+##### API側
+* [Slim Framework](http://www.slimframework.com/)
+* [Monolog](https://github.com/Seldaek/monolog)
+* [PHP implementation of JSON schema](https://github.com/justinrainbow/json-schema)
+* [Propel](http://propelorm.org/)
 
 #### デバイス
-*iPhone  
-*Androidタブレット  
-*RasberryPi  
-*人感センサー、モーションセンサー  
+* iPhone
+* Androidタブレット
+* RasberryPi
+* 人感センサー、モーションセンサー
 
 
 ### 独自技術
