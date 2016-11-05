@@ -35,7 +35,7 @@ class FTHConfirmationViewController: UIViewController {
         var index = 0
         let textFieldHeight = 50
         for (key, val) in self.table {
-            var fthConSubView = FTHConfirmationSubView(frame: CGRect(x: 0, y: index * textFieldHeight, width: Int(self.view.bounds.size.width), height: textFieldHeight), name: key, date: val.1, price: val.0, nameTextField: FUITextField(), dateTextField: FUITextField(), priceTextView: FUITextField())
+            var fthConSubView = FTHConfirmationSubView(frame: CGRect(x: 0, y: index * textFieldHeight, width: Int(self.view.bounds.size.width), height: textFieldHeight), name: key, date: val.1, price: val.0, nameTextField: UITextField() as! FUITextField, dateTextField: UITextField() as! FUITextField, priceTextView: UITextField())
             fthConSubView.dateTextField?.inputView = self.myDatePicker
             self.myScrollView.addSubview(fthConSubView)
             index += 1

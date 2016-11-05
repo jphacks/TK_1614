@@ -2,14 +2,14 @@ import UIKit
 import FlatUIKit
 
 class FTHConfirmationSubView: UIView{
-    var nameTextField:FUITextField?
-    var dateTextField:FUITextField?
-    var priceTextView: FUITextField?
+    var nameTextField:UITextField?
+    var dateTextField:UITextField?
+    var priceTextView: UITextField?
     
     init () {
         super.init(frame:CGRect.zero)
     }
-    init(frame: CGRect, name: String, date:NSDate, price:Int, nameTextField:FUITextField, dateTextField:FUITextField, priceTextView:FUITextField) {
+    init(frame: CGRect, name: String, date:NSDate, price:Int, nameTextField:UITextField, dateTextField:UITextField, priceTextView:UITextField) {
         super.init(frame: frame)
 
         let textFieldLeftMargin = 30
