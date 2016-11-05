@@ -73,7 +73,9 @@ class FTHAddViewController: UIViewController, UIImagePickerControllerDelegate, U
         picker.dismiss(animated: true, completion: nil)
         let bestBeforeDate = BestBeforeDate(callback: { (table : [ String : (Int, NSDate, Int) ]) in
             print(table)
-            let confirmationViewController = FTHConfirmationViewController()
+
+            let confirmationViewController = FTHConfirmationViewController(table:table)
+
             self.navigationController?.pushViewController(confirmationViewController, animated: true)
         })
         bestBeforeDate.fetch(myImageView.image!)

@@ -51,7 +51,6 @@ class FTHSeeUIViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  MGSwipeTableCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "FoodCell")
 
-        //表示直します
         if (indexPath as NSIndexPath).section == 0 {
             cell.textLabel?.text = fthRefrigeratorModel.expiringFoodStocks[(indexPath as NSIndexPath).row].name + " Expiration date : "+String(describing: fthRefrigeratorModel.expiringFoodStocks[(indexPath as NSIndexPath).row].date)
         } else if (indexPath as NSIndexPath).section == 1 {

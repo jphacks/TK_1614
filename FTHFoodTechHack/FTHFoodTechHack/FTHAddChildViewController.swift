@@ -1,15 +1,16 @@
 import UIKit
 import RealmSwift
 import FlatUIKit
-import SSBouncyButton
 
 class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlertViewDelegate{
 
     let foodTextField = FUITextField()
     let numTextField = FUITextField()
-    let dateTextField = FUITextField()
-    
+    var dateTextField = FUITextField()
+    static let textFieldLeftMargin = 30
+
     override func viewDidLoad() {
+    
         self.view.backgroundColor = UIColor.white
         let foodLabel = UILabel(frame:CGRect(x: 30, y: 100, width: 80 , height: 50))
          foodLabel.textAlignment = NSTextAlignment.center
@@ -19,6 +20,7 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         
         foodTextField.frame = CGRectMake(foodLabel.frame.maxX, 100, 200 , 50)
         foodTextField.delegate = self
+        foodTextField.textFieldColor = UIColor.clear
         foodTextField.backgroundColor = UIColor.white
         foodTextField.borderColor = UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
         foodTextField.borderWidth = 2.0
@@ -30,12 +32,12 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         
         let numLabel = UILabel(frame: CGRect(x: 30, y: foodLabel.frame.maxY + 10, width: 80 , height: 50))
         numLabel.textAlignment = NSTextAlignment.center
-        numLabel.text = "個数"
+        numLabel.text = "価格"
         self.view.addSubview(numLabel)
         
         numTextField.frame = CGRectMake(foodLabel.frame.maxX,foodLabel.frame.maxY + 10, 200 , 50)
         numTextField.delegate = self
-        numTextField.text = "個数"
+        numTextField.textFieldColor = UIColor.clear
         numTextField.borderColor = UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
         numTextField.borderWidth = 2.0
         numTextField.cornerRadius = 3.0
@@ -58,6 +60,11 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         dateTextField.layer.borderWidth = 1.0
         self.view.addSubview(dateTextField)
         
+        let myDatePicker = UIDatePicker()
+        myDatePicker.addTarget(self, action: #selector(changedDateEvent), for: UIControlEvents.valueChanged)
+        myDatePicker.datePickerMode = UIDatePickerMode.date
+        dateTextField.inputView = myDatePicker
+
         let trybutton = FUIButton()
         trybutton.frame = CGRectMake(foodLabel.frame.maxX, dateTextField.frame.maxY + 10, 100, 50)
         trybutton.buttonColor =  UIColor(red: (252/255.0), green: (114/255.0), blue: (84/255.0), alpha: 1.0)
@@ -65,15 +72,22 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         trybutton.shadowHeight = 3.0
         trybutton.cornerRadius = 6.0
         
-
         trybutton.titleLabel?.textColor = UIColor.black
-        
+
         trybutton.setTitle("追加する", for: UIControlState())
         trybutton.addTarget(self, action: #selector(didTapAddButton), for:.touchUpInside)
-        self.view.addSubview(trybutton)       
+        self.view.addSubview(trybutton)
+        
     }
 
     override func didReceiveMemoryWarning() {}
+    
+    
+    func changedDateEvent(sender:AnyObject?){
+        let dateSelecter: UIDatePicker = sender as! UIDatePicker
+        self.dateTextField.text = self.stringFromDate(date: dateSelecter.date as NSDate, format: "yyyy年MM月dd日")
+    }
+
     
     func didTapAddButton(sender: UIButton){
         let realm = try! Realm()
@@ -85,10 +99,21 @@ class FTHAddChildViewController: UIViewController, UITextFieldDelegate, FUIAlert
         try! realm.write{
             realm.add(realmFood)
         }
-        
     }
     
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
         return CGRect(x: x, y: y, width: width, height: height)
+    }
+    
+    func dateFromString(string: String, format: String) -> NSDate {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.date(from: string)! as NSDate
+    }
+    
+    func stringFromDate(date: NSDate, format: String) -> String {
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: date as Date)
     }
 }
